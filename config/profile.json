@@ -5,7 +5,7 @@
       "composer_input_disabled": false,
       "call_to_actions": [
         {
-          "title":"🔍 Κοντινές Στάσεις",
+          "title":"Button",
           "type":"postback",
           "payload":"near_stations"
         },
