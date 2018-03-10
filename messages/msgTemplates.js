@@ -42,6 +42,13 @@ function helloBrother (id) {
   });
 }
 
+function pressButton (id) {
+  setContext(id, {expecting: "nothing", step: "press_button"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: `You pressed a button well done!`
+  });
+}
+
 module.exports = {
   // Menu and Get Started
   getStarted,
@@ -49,5 +56,6 @@ module.exports = {
   attachmentDefaultAnswer,
   hodorDefault,
   testDefault,
-  helloBrother
+  helloBrother,
+  pressButton
 }
