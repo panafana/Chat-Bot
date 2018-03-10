@@ -35,6 +35,12 @@ function testDefault (id) {
     text: `tset`
   });
 }
+function helloBrother (id) {
+  setContext(id, {expecting: "nothing", step: "hello_brother"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: `Do you listen?`
+  });
+}
 
 module.exports = {
   // Menu and Get Started
@@ -42,5 +48,6 @@ module.exports = {
   // Default Answers
   attachmentDefaultAnswer,
   hodorDefault,
-  testDefault
+  testDefault,
+  helloBrother
 }
