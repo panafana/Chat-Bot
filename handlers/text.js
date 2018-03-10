@@ -5,7 +5,7 @@ function textHandler (message, id, nlp, user) {
     console.log(msg);
     switch (msg.toUpperCase()) {
         case "HODOR": return m.hodorDefault(id);
-        case "TEST2": return m.testDefault(id);
+        case "TEST": return m.testDefault(id);
         default: throw new Error("Unrecognized text Message ");
     }
 }

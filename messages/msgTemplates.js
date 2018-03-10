@@ -41,5 +41,6 @@ module.exports = {
   getStarted,
   // Default Answers
   attachmentDefaultAnswer,
-  hodorDefault
+  hodorDefault,
+  testDefault
 }
