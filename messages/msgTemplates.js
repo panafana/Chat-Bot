@@ -32,7 +32,7 @@ function hodorDefault (id) {
 function testDefault (id) {
   setContext(id, {expecting: "nothing", step: "test_default"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: 'tset'
+    text: `tset`
   });
 }
 
