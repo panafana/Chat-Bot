@@ -1,4 +1,4 @@
-
+import { resolve } from 'dns';
 
 const m = require('../messages/msgTemplates');
 
@@ -18,7 +18,7 @@ function nlpHandler(id , nlp,user){
         if(nlp.entities.intent){
             resolve(intentHandler(id,user,nlp));
         }
-    } )
+    } );
 }
 
 function intentHandler(id,user,nlp){
