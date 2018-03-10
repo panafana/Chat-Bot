@@ -5,7 +5,7 @@ function menuHandler (messaging, payload, user) {
     const id = user.id;
     switch (payload) {
         case "get_started": return m.getStarted(id, user);
-        case "near_stations": return m.pressButton(id);
+        case "near_stations": return m.pressButton(id,user);
         default: return payloadWithoutData(messaging, payload, user);
     }
 }

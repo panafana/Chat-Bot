@@ -42,10 +42,10 @@ function helloBrother (id) {
   });
 }
 
-function pressButton (id) {
+function pressButton (id,user) {
   setContext(id, {expecting: "nothing", step: "press_button"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: `You pressed a button well done!`
+    text: `You pressed a button well done! Malaka ${user.fullname}!`
   });
 }
 
