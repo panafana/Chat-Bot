@@ -92,9 +92,9 @@ function unavailableEvents (id) {
 function eventSearch (id,nlp) {
 
   if(nlp.entities.type){
-    let f = events.filter( e => !e.applications);
+    let f = events.filter( e => e.applications);
     console.log(f);
-    let e = f.filter(e => ((e.type==nlp.entities.type[0].value)));
+    let e = f.filter(e => (e.type==nlp.entities.type[0].value));
     console.log(e);
     setContext(id, {expecting: "nothing", step:"event_search",type:nlp.entities.type[0].value});
   return fb.fbMessageDelay(DELAY, id, {
