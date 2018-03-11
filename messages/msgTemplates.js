@@ -60,11 +60,10 @@ function firstEvent (id) {
 
 
 function availableEvents (id) {
-  var e = events.filter(e => e.applications);
-  const final;
+  const e = events.filter(e => e.applications);
+  const final = "";
   for(i=0;i<e.length;i++){
-    e[i]=e[i].title;
-    final[i]=e[i];
+    final += e[i].title + " \n";  
   }
   
   setContext(id, {expecting: "nothing", step: "available_events"});
@@ -75,10 +74,9 @@ function availableEvents (id) {
 
 function unavailableEvents (id) {
   var e = events.filter(e => !e.applications);
-  const final;
+  const final = "";
   for(i=0;i<e.length;i++){
-    e[i]=e[i].title;
-    final[i]=e[i];
+    final += e[i].title + " \n";  
   }
   
   setContext(id, {expecting: "nothing", step: "available_events"});
