@@ -89,6 +89,13 @@ function unavailableEvents (id) {
   });
 }
 
+function eventSearch (id) {
+  setContext(id, {expecting: "nothing", step: "event_search"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: `Τί τύπο event θέλεις;`
+  });
+}
+
 module.exports = {
   // Menu and Get Started
   getStarted,
@@ -100,5 +107,6 @@ module.exports = {
   pressButton,
   firstEvent,
   availableEvents,
-  unavailableEvents
+  unavailableEvents,
+  eventSearch
 }
