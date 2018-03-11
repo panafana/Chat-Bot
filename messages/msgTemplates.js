@@ -4,6 +4,7 @@ const fb = new FB(global.FB_PAGE_TOKEN, global.FB_APP_SECRET);
 const { setContext } = require('../handlers/context');
 const events = require('../data');
 
+
 const menus = require('../messages/menus');
 
 const DELAY = 500;
@@ -57,6 +58,25 @@ function firstEvent (id) {
   });
 }
 
+
+function availableEvents (id) {
+  var e = events.filter(e => e.applications);
+  const final = e.join;
+  setContext(id, {expecting: "nothing", step: "available_events"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: e
+  });
+}
+
+function unavailableEvents (id) {
+  var e = events.filter(e => !e.applications);
+  const final = e.join;
+  setContext(id, {expecting: "nothing", step: "available_events"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: e
+  });
+}
+
 module.exports = {
   // Menu and Get Started
   getStarted,
@@ -66,5 +86,7 @@ module.exports = {
   testDefault,
   helloBrother,
   pressButton,
-  firstEvent
+  firstEvent,
+  availableEvents,
+  unavailableEvents
 }
