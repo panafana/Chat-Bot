@@ -27,7 +27,7 @@ function intentHandler(id,user,nlp){
         case "greeting":return m.getStarted(id,user);
         case "events_open": m.availableEvents(id);
         case "events_closed": m.unavailableEvents(id);
-        default: throw new Error("Unknown intent");
+        default: throw new Error("Unknown intent "+nlp.entities.intent[0].value);
     }
 }
 module.exports = {
