@@ -61,10 +61,12 @@ function firstEvent (id) {
 
 function availableEvents (id) {
   var e = events.filter(e => e.applications);
+  const final;
   for(i=0;i<e.length;i++){
     e[i]=e[i].title;
+    final[i]=e[i];
   }
-  const final = e.join;
+  
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
     text: `τα διαθεσιμα events ειναι: `+final 
@@ -73,10 +75,12 @@ function availableEvents (id) {
 
 function unavailableEvents (id) {
   var e = events.filter(e => !e.applications);
+  const final;
   for(i=0;i<e.length;i++){
     e[i]=e[i].title;
+    final[i]=e[i];
   }
-  const final = e.join;
+  
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
     text: `τα μη διαθεσιμα events ειναι: `+final
