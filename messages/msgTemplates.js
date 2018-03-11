@@ -62,26 +62,30 @@ function firstEvent (id) {
 function availableEvents (id) {
   let e = events.filter(e => e.applications);
   let final = "";
-  for(i=0;i<e.length;i++){
+  for(let i=0;i<e.length;i++){
     final += e[i].title + " \n";  
   }
-  
+
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: `τα διαθεσιμα events ειναι: `+final 
+    attachment: t.cardMessage(final.map(e => t.cardElement({
+      title : e.title,
+      subtitle: e.commitment,
+      image_url: e.image_url
+    })))
   });
 }
 
 function unavailableEvents (id) {
   let e = events.filter(e => !e.applications);
   let final = "";
-  for(i=0;i<e.length;i++){
+  for(let i=0;i<e.length;i++){
     final += e[i].title + " \n";  
   }
   
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: `τα μη διαθεσιμα events ειναι: `+final
+    text: `Τα μη διαθεσιμα events ειναι: `+final
   });
 }
 
