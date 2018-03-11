@@ -60,8 +60,8 @@ function firstEvent (id) {
 
 
 function availableEvents (id) {
-  const e = events.filter(e => e.applications);
-  const final = "";
+  let e = events.filter(e => e.applications);
+  let final = "";
   for(i=0;i<e.length;i++){
     final += e[i].title + " \n";  
   }
@@ -73,8 +73,8 @@ function availableEvents (id) {
 }
 
 function unavailableEvents (id) {
-  var e = events.filter(e => !e.applications);
-  const final = "";
+  let e = events.filter(e => !e.applications);
+  let final = "";
   for(i=0;i<e.length;i++){
     final += e[i].title + " \n";  
   }
