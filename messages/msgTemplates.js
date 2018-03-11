@@ -2,6 +2,7 @@ const { FB, t } = require('fblib');
 const fb = new FB(global.FB_PAGE_TOKEN, global.FB_APP_SECRET);
 
 const { setContext } = require('../handlers/context');
+const events = require('../data');
 
 const menus = require('../messages/menus');
 
@@ -49,6 +50,13 @@ function pressButton (id,user) {
   });
 }
 
+function firstEvent (id) {
+  setContext(id, {expecting: "nothing", step: "first_event"});
+  return fb.fbMessageDelay(DELAY, id, {
+    text: events[0].title
+  });
+}
+
 module.exports = {
   // Menu and Get Started
   getStarted,
@@ -57,5 +65,6 @@ module.exports = {
   hodorDefault,
   testDefault,
   helloBrother,
-  pressButton
+  pressButton,
+  firstEvent
 }

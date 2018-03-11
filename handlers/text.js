@@ -9,6 +9,7 @@ function textHandler (message, id, nlp, user) {
         case "HODOR": return m.hodorDefault(id);
         case "TEST": return m.testDefault(id);
         case "HELLO BROTHER": return m.helloBrother(id);
+        case "FIRST EVENT": return m.firstEvent(id);
         default: return nlpHandler(id,nlp,user);
     }
 }
