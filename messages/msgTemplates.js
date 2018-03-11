@@ -68,7 +68,7 @@ function availableEvents (id) {
 
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
-    attachment: t.cardMessage(final.map(e => t.cardElement({
+    attachment: t.cardMessage(e.map(e => t.cardElement({
       title : e.title,
       subtitle: e.commitment,
       image_url: e.image_url
