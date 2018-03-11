@@ -96,7 +96,7 @@ function eventSearch (id,nlp) {
     console.log(f);
     console.log(nlp.entities.type[0].value);
     */
-    let e = f.filter(b => (b.type==nlp.entities.type[0].value));
+    let e = events.filter(b => (b.type==nlp.entities.type[0].value));
     console.log(e);
     setContext(id, {expecting: "nothing", step:"event_search",type:nlp.entities.type[0].value});
   return fb.fbMessageDelay(DELAY, id, {
