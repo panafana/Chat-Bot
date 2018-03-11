@@ -61,6 +61,9 @@ function firstEvent (id) {
 
 function availableEvents (id) {
   var e = events.filter(e => e.applications);
+  for(i=0;i<e.length;i++){
+    e[i]=e[i].title;
+  }
   const final = e.join;
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
@@ -70,6 +73,9 @@ function availableEvents (id) {
 
 function unavailableEvents (id) {
   var e = events.filter(e => !e.applications);
+  for(i=0;i<e.length;i++){
+    e[i]=e[i].title;
+  }
   const final = e.join;
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
