@@ -64,7 +64,7 @@ function availableEvents (id) {
   const final = e.join;
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: e
+    text: final
   });
 }
 
@@ -73,7 +73,7 @@ function unavailableEvents (id) {
   const final = e.join;
   setContext(id, {expecting: "nothing", step: "available_events"});
   return fb.fbMessageDelay(DELAY, id, {
-    text: e
+    text: final
   });
 }
 
