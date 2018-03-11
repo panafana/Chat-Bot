@@ -25,8 +25,8 @@ function nlpHandler(id , nlp,user){
 function intentHandler(id,user,nlp){
     switch(nlp.entities.intent[0].value){
         case "greeting":return m.getStarted(id,user);
-        case "events_open": m.availableEvents(id);
-        case "events_closed": m.unavailableEvents(id);
+        case "events_open": return m.availableEvents(id);
+        case "events_closed": return m.unavailableEvents(id);
         default: throw new Error("Unknown intent "+nlp.entities.intent[0].value);
     }
 }
