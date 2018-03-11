@@ -89,8 +89,31 @@ function unavailableEvents (id) {
   });
 }
 
-function eventSearch (id) {
-  setContext(id, {expecting: "nothing", step: "event_search"});
+function eventSearch (id,nlp) {
+
+  if(nlp.entities.type){
+    let e = events.filter(e => e.type==nlp.entities.type[0].value);
+
+    setContext(id, {expecting: "nothing", step:"event_search",type:nlp.entities.type[0].value});
+  return fb.fbMessageDelay(DELAY, id, {
+    attachment: t.cardMessage(e.map(e => t.cardElement({
+      title : e.title,
+      subtitle: e.commitment,
+      image_url: e.image_url
+    })))
+  });
+  }else{
+    setContext(id, {expecting: "nothing", step: "event_search"});
+    return fb.fbMessageDelay(DELAY, id, {
+      text: `Τί τύπο event θέλεις;`
+    });
+  }
+
+  
+}
+
+function eventType (id) {
+  setContext(id, {expecting: "event_search", step: "event_type"});
   return fb.fbMessageDelay(DELAY, id, {
     text: `Τί τύπο event θέλεις;`
   });
@@ -108,5 +131,6 @@ module.exports = {
   firstEvent,
   availableEvents,
   unavailableEvents,
-  eventSearch
+  eventSearch,
+  eventType
 }
